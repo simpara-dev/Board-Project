@@ -1,0 +1,60 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Gestion des Biens
+{% endblock %}
+
+{% block body %}
+	<!DOCTYPE html>
+	<html dir="ltr" lang="en">
+		<body>
+			<!-- ============================================================== -->
+			<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- Page wrapper  -->
+			<!-- ============================================================== -->
+				<div class="page-wrapper"> <!-- ============================================================== -->
+				<!-- Bread crumb and right sidebar toggle -->
+				<!-- ============================================================== -->
+					<div class="page-breadcrumb"> <div class="row align-items-center">
+						<div class="col-5">
+							<h4 class="page-title">Gestion des Biens</h4>
+							<div class="d-flex align-items-center">
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="{{ path('admin_bien_index')}}">Accueil</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">Bien</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<div class="col-7">
+							<div class="text-right upgrade-btn">
+								<a href="{{ path('admin_bien_new')}}" , class="btn btn-secondary">Creer un bien</a>
+							</div>
+						</div>
+						<div class="container float-righ">
+							<div class="row">
+								<div class="col-md-9">
+									<div class="grid">
+										{% for bien in biens %}
+											{% include "admin/bien/_card.html.twig" %}
+										{% else %}
+											<tr>
+												<td colspan="5">Aucun bien
+												</td>
+											</tr>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</body>
+	</html>
+{% endblock %}
